@@ -11,7 +11,7 @@ class MyThread(threading.Thread):
 		while not self.queue.empty():
 			print('there are ', threading.activeCount(), 'threads running')
 			task = self.queue.get()
-			mission = subprocess.call(task)
+			subprocess.call(task)
 			self.queue.task_done
 			print("mission", task, 'finished')
 
