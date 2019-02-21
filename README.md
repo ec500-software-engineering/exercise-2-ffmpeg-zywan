@@ -11,4 +11,4 @@ the task will be extracted from queue and begin a thread to handle that task.
 
 ### Estimation     
 My labtop is 2014mid macbook pro, there is a 8 core cpu. when I run the code to convert one video, the machine will make use of all its power to do that by default.   
-It seems that the machine could run 10 such task at the same time.   
+It seems that the machine could run 10 such tasks at the same time.   
