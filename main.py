@@ -18,19 +18,20 @@ class MyThread(threading.Thread):
 
 def main():
 	task_queue = Queue()
-	for i in range(3):
+	for i in range(5):
 		name = ['480p_'+str(i)+'.mp4', '720p_'+str(i)+'.mp4']
 		task = ['ffmpeg', '-i', 'video.mp4',
 		  		'-r', '30', '-s', 'hd480', '-b:v', '1024k', '-loglevel', 'quiet', name[0],
 				'-r', '30', '-s', 'hd720', '-b:v', '2048k', '-loglevel', 'quiet', name[1]]
 		task_queue.put(task)
-	thread_num = 2
-	for i in range(thread_num):
+	
+	while True:
 		thread_convert = MyThread(task_queue)
 		thread_convert.start()
-
-	task_queue.join()
-	print('all done')
+		if task_queue.empty():
+			print('all done')
+			break
+			
 
 
 if __name__ == '__main__':
