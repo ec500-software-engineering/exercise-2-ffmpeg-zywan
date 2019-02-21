@@ -18,7 +18,7 @@ def convert(q):
 def main():
 	q = Queue()
 	i = 1
-	while i<10:
+	while i<5:
 		thread_caller = threading.Thread(target= caller, args = (q,i,))
 		thread_convert = threading.Thread(target = convert, args=(q,))
 		thread_caller.start()
